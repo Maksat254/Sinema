@@ -1,22 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
 @extends('layouts.app')
 @section('content')
-<div>
+    <div>
         <div>свободно</div>
-    <div class="seat2"></div>
+        <div class="seat2"></div>
         <div>занято</div>
-    <div class="seat23"></div>
+        <div class="seat23"></div>
         <div>ваша бронь</div>
-    <div class="seat24"></div>
-</div>
-<div class="cinoteatr">
-    <div id='count_'></div>
-    @for($i=0;$i<10;$i++)
-        <div class="seat-{{ $i }} seats"><input type="hidden" name="seats[]" value="0"></div>
-    @endfor
+        <div class="seat24"></div>
+    </div>
+    <div class="cinoteatr">
+        <div id='count_'></div>
+        @for($i=0;$i<10;$i++)
+            <div class="seat-{{ $i }} seats"><input type="hidden" name="seats[]" value="0"></div>
+        @endfor
 
-    <button type="submit">Бронировать</button>
+        <a href="{{ route('create') }}" class="btn btn-primary">Бронировать</a>
 
-</div>
+    </div>
 
 @endsection
 @push('styles')
@@ -98,3 +109,6 @@
         })
     </script>
 @endpush
+
+</body>
+</html>

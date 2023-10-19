@@ -25,7 +25,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-
+        return view('bookings.create');
     }
 
     /**
@@ -34,10 +34,21 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
+
+            public function store(Request $request)
+            {
+                $booking = new Booking();
+                $booking->name = $request->input('name');
+                $booking->email = $request->input('email');
+                $booking->seat_id = $request->input('seat_id');
+                $booking->screen_id = $request->input('screen_id');
+                $booking->user_id = $request->input('user_id');
+                $booking->save();
+
+                return redirect()->back()->with('success', 'Место успешно забронировано.');
+            }
+
 
     /**
      * Display the specified resource.

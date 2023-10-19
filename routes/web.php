@@ -19,3 +19,8 @@ Route::get('/', function () {
 
 Route::get('/get-film', [\App\Http\Controllers\FilmController::class, 'getFilm'])->name('get-film');
 Route::get('/booking', [\App\Http\Controllers\BookingController::class, 'getBooking'])->name('booking');
+Route::get('/create', [\App\Http\Controllers\BookingController::class, 'create'])->name('create');
+Route::post('/booking/create', [\App\Http\Controllers\BookingController::class, 'store'])->name('booking.store');
+Route::get('/get-login', function () {})->middleware('auth')->name('get-login');
+Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/register', [\App\Http\Controllers\RegisterController::class, 'register'])->name('register');
